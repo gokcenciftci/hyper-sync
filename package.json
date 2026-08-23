@@ -1,0 +1,53 @@
+{
+  "name": "hyper-sync",
+  "version": "1.0.0",
+  "description": "Local-First Real-Time CRDT & Distributed State Engine with Vector Clocks, Delta Replication, and WebSocket Multiplexing",
+  "type": "module",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "bin": {
+    "hypersync": "dist/cli.js"
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.build.json",
+    "clean": "node -e \"fs.rmSync('dist', {recursive:true,force:true}); fs.rmSync('coverage', {recursive:true,force:true})\"",
+    "start": "node dist/cli.js",
+    "dev": "tsx src/cli.ts",
+    "test": "vitest run",
+    "test:unit": "vitest run tests/unit",
+    "test:convergence": "vitest run tests/convergence",
+    "test:network": "vitest run tests/network",
+    "test:coverage": "vitest run --coverage",
+    "bench": "vitest bench --run",
+    "lint": "tsc --noEmit"
+  },
+  "keywords": [
+    "crdt",
+    "real-time",
+    "state-sync",
+    "vector-clock",
+    "distributed-systems",
+    "local-first",
+    "offline-first",
+    "websocket",
+    "delta-crdt",
+    "rga",
+    "lww"
+  ],
+  "author": "Gökçen Çiftci <gokcenciftci938@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "ws": "^8.18.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22.5.0",
+    "@types/ws": "^8.5.12",
+    "@vitest/coverage-v8": "^2.0.5",
+    "tsx": "^4.19.0",
+    "typescript": "^5.5.4",
+    "vitest": "^2.0.5"
+  },
+  "engines": {
+    "node": ">=20.0.0"
+  }
+}
